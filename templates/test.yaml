@@ -1,0 +1,14 @@
+project_name: csv_db_tool
+structure:
+  - path: main.py
+    content: "# CLI entry point"
+  - path: db/connection.py
+    content: "# Handles DB connection"
+  - path: db/schema_utils.py
+    content: "# Table creation and schema management"
+  - path: io/csv_reader.py
+  - path: io/csv_writer.py
+  - path: importer.py
+  - path: exporter.py
+  - path: config.py
+  - path: requirements.txt
