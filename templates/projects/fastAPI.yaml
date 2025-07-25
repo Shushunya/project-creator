@@ -3,7 +3,7 @@ structure:
   .env: ''
   .gitignore: ''
   README.md: ''
-  alembic: ''
+  alembic: {}
   app:
     __init__.py: ''
     api:

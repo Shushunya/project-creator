@@ -1,0 +1,25 @@
+project_name: cli_app
+structure:
+  alembic: {}
+  app:
+    __init__.py: ''
+    main.py: ''
+    config.py: ''
+    module1.py: ''
+    utils.py: ''
+    db:
+      __init__.py: ''
+      models.py: ''
+      session.py: ''
+      crud.py: ''
+    services:
+      __init__.py: ''
+  tests:
+    __init__.py: ''
+  templates: {}
+  README.md: ''
+  requirements.txt: ''
+  setup.py: ''
+  pyproject.toml: ''
+  .gitignore: ''
+  .env: ''
