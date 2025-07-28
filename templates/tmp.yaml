@@ -1,4 +1,4 @@
-project_name: test
+project_name: name
 structure:
   .env: ''
   .gitignore: ''

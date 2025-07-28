@@ -1,9 +1,9 @@
 import argparse, pathlib
 
-from config import (DEFAULT_PROJECT_TYPE, DEFAULT_PROJECT_NAME,
+from .config import (DEFAULT_PROJECT_TYPE, DEFAULT_PROJECT_NAME,
                     USAGE_MSG, DESCRIPTION_MSG, EPILOG_MSG,
                     HELP_PATH, HELP_NAME, HELP_TYPE, HELP_VERSION)
-from utils import get_available_types
+from .utils import get_available_types
 
 
 # TODO: make toml and get version from there

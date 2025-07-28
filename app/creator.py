@@ -1,25 +1,12 @@
 import yaml
 import os
-from utils import templates_path, file_path
-# to do list
-# TODO: split into files
-# TODO: add parsing args from console
-# TODO: make a config file
-# TODO: make config file for choosing project structure file
-# TODO: add templates for files
-# TODO: optimize yaml files
+from .utils import project_template_file_path, get_file
 
-tmp = {
-    "fastAPI": "fastAPI.yaml",
-    "test": "test.yaml"
-}
 
-working_file_name = "../templates/main.yaml"
+working_file_name = "tmp.yaml"
 
 def write_project_name_to_yaml(project_type, name):
-
-    # yaml_file = tmp[project_type]
-    yaml_file = file_path(project_type + ".yaml")
+    yaml_file = project_template_file_path(project_type + ".yaml")
     # open yaml file
     with open(yaml_file) as f:
         default_yaml = yaml.safe_load(f)
@@ -29,8 +16,9 @@ def write_project_name_to_yaml(project_type, name):
         if parameter == "project_name":
             default_yaml[parameter] = name
 
+    
     # write new yaml
-    with open(working_file_name, "w") as f:
+    with open(get_file(working_file_name), "w") as f:
         yaml.dump(default_yaml, f)
 
     return working_file_name
@@ -54,7 +42,7 @@ def create_project(
         project_name,
         base_path=current_dir):
     file_name = write_project_name_to_yaml(project_type, project_name)
-    with open(file_name) as f:
+    with open(get_file(file_name)) as f:
         yaml_file = yaml.safe_load(f)
 
     project_name = yaml_file["project_name"]
@@ -62,6 +50,3 @@ def create_project(
 
     os.makedirs(project_name, exist_ok=True)
     create_structure(project_name, structure)
-
-
-# create_project("fastAPI", "new try")
