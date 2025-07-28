@@ -11,7 +11,6 @@ structure:
   templates: {}
   README.md: ''
   requirements.txt: ''
-  setup.py: ''
   pyproject.toml: ''
   .gitignore: ''
   .env: ''

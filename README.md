@@ -1,103 +1,100 @@
-# Project Scaffolder
+# Project Scaffolder CLI
 
-Project Scaffolder is a Python-based CLI tool that quickly bootstraps new project directories using customizable YAML templates. Ideal for creating consistent project structures for scripts, CLI tools, libraries, and more.
-
----
+A Python command-line tool to quickly scaffold project directories and files based on predefined YAML templates.
 
 ## Features
 
-- Generate project folders and files from simple YAML templates
-- Support for nested directory structures
-- Customizable default content in files (like `README.md`, `main.py`, etc.)
-- Easy to extend with your own templates
-- Minimal dependencies
+- Create empty project structures from templates  
+- Supports multiple project types (CLI, FastAPI, etc.)  
+- Uses YAML files to define project layouts  
+- CLI interface with `argparse`  
+- Editable and extensible templates  
 
----
+## Getting Started
 
-## Installation
+1. Clone the repository:
 
-Clone the repo and install dependencies:
+    `git clone https://github.com/your-username/project-scaffolder-cli.git`
 
-`git clone https://github.com/yourusername/project-scaffolder.git`
-`cd project-scaffolder`
-`pip install -r requirements.txt`
+    `cd project-scaffolder-cli`
 
+2. Create a virtual environment 
+
+    `python -m venv .venv`
+
+3. Activate the virtual environment
+
+    `.venv\Scripts\activate` (on Windows)
+
+    `source .venv/bin/activate`
+
+4. Install the package in editable mode
+
+    `pip install -e .`
+
+5. Verify installation
+
+    `scaffold --help`
 
 ## Usage
 
-Run the scaffolder using Python:
+1. Install the package in editable mode:
 
-```bash
-Copy
-Edit
-python -m scaffolder.main --name my_project --template templates/minimal.yaml
+   `pip install -e .`
+
+2. Run the CLI:
+
+   `scaffold <path> [--name project_name] [--type project_type]`
+
+   Example:
+
+   `scaffold . --name testy --type CLI`
+   or `scaffold . -n testy -t CLI`
+
+   It will generate a new directory `testy` with the following structure:
+    ```
+    testy
+    ├── app/
+    │   ├── main.py                  
+    │   ├── module1.py       
+    │   ├── config.py        
+    │   ├── utils.py
+    │   └── __init__.py
+    ├── templates/
+    ├── tests/
+    │   └── __init__.py
+    ├── .env
+    ├── .gitignore
+    ├── pyproject.toml
+    ├── requirements.txt
+    └── README.md
+    ```
+
+
+## Project Structure
+
 ```
-Arguments:
-
---name: Name of the project (used as the folder name)
-
---template: Path to the YAML file defining the structure
-
-YAML Template Example
-A basic minimal.yaml might look like this:
-
-yaml
-Copy
-Edit
-my_project:
-  my_project:
-    __init__.py: ""
-    main.py: "# Main entry point"
-  tests:
-    __init__.py: ""
-  README.md: "# My Project"
-  requirements.txt: ""
-  setup.py: ""
-This generates:
-
-markdown
-Copy
-Edit
-my_project/
-├── my_project/
-│   ├── __init__.py
-│   └── main.py
+.
+├── app/
+│   ├── main.py          # Entry point
+│   ├── parser.py        # Argument parsing logic
+│   ├── creator.py       # Project generation logic
+│   ├── config.py        # Config and paths
+│   ├── utils.py
+│   └── __init__.py
+├── templates/
+│   └── projects/
+│       ├── CLI.yaml
+│       ├── CLI_DB.yaml
+│       ├── fastAPI.yaml
+│       └── tmp.yaml
 ├── tests/
 │   └── __init__.py
-├── README.md
+├── .env
+├── .env.sample
+├── .gitignore
+├── pyproject.toml
 ├── requirements.txt
-└── setup.py
-Project Structure
-arduino
-Copy
-Edit
-project_scaffolder/
-├── scaffolder/
-│   ├── main.py
-│   ├── parser.py
-│   ├── creator.py
-│   └── utils.py
-├── templates/
-│   ├── minimal.yaml
-│   └── cli_tool.yaml
-├── tests/
-├── README.md
-├── requirements.txt
-└── setup.py
-Running Tests
-bash
-Copy
-Edit
-pytest tests/
-Planned Features
- Template variable substitution (e.g., {{project_name}})
-
- Built-in templates for CLI tools, web apps, etc.
-
- Interactive CLI prompts
-
- Global CLI installation support
-
-License
-MIT License
-
+├── setup.py
+└── README.md
+```
