@@ -1,22 +1,24 @@
 # Project Scaffolder CLI
 
-A Python command-line tool to quickly scaffold project directories and files based on predefined YAML templates.
+A Python command-line tool to quickly scaffold project directories and files based on predefined YAML templates. Ideal for creating consistent project structures for scripts, CLI tools, libraries, and more.
 
 ## Features
 
 - Create empty project structures from templates  
+- Support for nested directory structures
 - Supports multiple project types (CLI, FastAPI, etc.)  
 - Uses YAML files to define project layouts  
 - CLI interface with `argparse`  
+- Customizable default content in files (like README.md, main.py, etc)
 - Editable and extensible templates  
 
 ## Getting Started
 
 1. Clone the repository:
 
-    `git clone https://github.com/your-username/project-scaffolder-cli.git`
+    `git clone https://github.com/Shushunya/project-creator.git`
 
-    `cd project-scaffolder-cli`
+    `cd project-creator`
 
 2. Create a virtual environment 
 
